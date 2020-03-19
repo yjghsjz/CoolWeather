@@ -1,0 +1,10 @@
+<litepal>
+    <dbname value="cool_weather" /> <!-- 指定数据库名 -->
+    <version value="1"/> <!-- 指定数据库版本 -->
+    <list>
+        <!-- 将实体类映射到表中 -->
+        <mapping class="com.coolweather.android.db.Province"/>
+        <mapping class="com.coolweather.android.db.City"/>
+        <mapping class="com.coolweather.android.db.County"/>
+    </list>
+</litepal>
