@@ -11,13 +11,32 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:background="@drawable/ic_home"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/night_button"
+        android:layout_marginLeft="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="?android:attr/textColorPrimary"
+        android:text="夜间模式"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/light_button"
+        android:layout_marginLeft="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="?android:attr/textColorPrimary"
+        android:text="白天模式"/>
+
     <!-- 居中显示城市名 -->
     <TextView
         android:id="@+id/title_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="#fff"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="20sp" />
     <!-- 居右显示更新时间 -->
     <TextView
@@ -28,5 +47,5 @@
         android:layout_centerVertical="true"
         android:layout_margin="10dp"
         android:textSize="16sp"
-        android:textColor="#fff" />
+        android:textColor="?android:attr/textColorPrimary" />
 </RelativeLayout>

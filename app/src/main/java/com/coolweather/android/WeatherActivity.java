@@ -1,5 +1,6 @@
 package com.coolweather.android;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -7,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,6 +27,8 @@ import com.coolweather.android.service.AutoUpdateService;
 import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
 import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.prefs.PreferenceChangeEvent;
 import okhttp3.Call;
@@ -49,6 +53,8 @@ public class WeatherActivity extends AppCompatActivity {
 
     public DrawerLayout drawerLayout;
     private Button navButton;
+    private Button nightButton;
+    private Button lightButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +70,8 @@ public class WeatherActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navButton = findViewById(R.id.nav_button);
+        nightButton = findViewById(R.id.night_button);
+        lightButton = findViewById(R.id.light_button);
 
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
@@ -96,6 +104,21 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        nightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                unLoadBingPic();
+            }
+        });
+
+        lightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
 
@@ -195,7 +218,8 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 final String bingPic = response.body().string();
-                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit();
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences
+                        (WeatherActivity.this).edit();
                 editor.putString("bing_pic",bingPic);
                 editor.apply();
                 runOnUiThread(new Runnable() {
@@ -210,6 +234,12 @@ public class WeatherActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
+
+    }
+
+    private void unLoadBingPic(){
+
+        Glide.with(WeatherActivity.this).load(R.drawable.ic_night).into(bingPicImg);
     }
 }
 

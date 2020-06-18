@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:background="#8000"><!-- 定义半透明的背景 -->
+    android:background="?attr/colorPrimary"><!-- 定义半透明的背景 -->
     <!-- 定义标题 -->
     <TextView
         android:layout_width="wrap_content"
@@ -11,7 +11,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
         android:text="预报"
-        android:textColor="#fff"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="20sp"/>
     <!-- 定义显示未来几天天气预报的布局 -->
     <LinearLayout

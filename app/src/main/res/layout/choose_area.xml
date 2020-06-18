@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/title_text"
             android:layout_centerInParent="true"
-            android:textColor="#FFF"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="20sp"/>
         <!-- 执行返回操作的按钮 -->
         <Button
@@ -30,5 +30,6 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list_view"/>
+        android:id="@+id/list_view"
+        android:background="?attr/colorPrimary"/>
 </LinearLayout>

@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:background="#8000"><!-- 定义半透明背景 -->
+    android:background="?attr/colorPrimary"><!-- 定义半透明背景 -->
     <!-- 定义标题 -->
     <TextView
         android:layout_width="match_parent"
@@ -29,14 +29,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="#fff"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textColor="?android:attr/textColorPrimary"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="AQI 指数"
-                android:textColor="#fff" />
+                android:textColor="?android:attr/textColorPrimary" />
         </LinearLayout>
         <!-- 显示PM2.5指数 -->
         <LinearLayout
@@ -49,14 +49,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="#fff"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="40sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="PM2.5 指数"
-                android:textColor="#fff" />
+                android:textColor="?android:attr/textColorPrimary" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
